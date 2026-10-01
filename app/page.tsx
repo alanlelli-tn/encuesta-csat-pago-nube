@@ -8,7 +8,7 @@ import {
   FUNNEL,
   TOTAL_VIEWS,
   UNIQUE_RESPONDENTS,
-  type Respondent,
+  COMPLETIONS,
 } from './data';
 
 const NIMBUS_BLUE = '#0050c3';
@@ -292,7 +292,6 @@ function RespondentsTable() {
 }
 
 function FunnelStrip() {
-  const max = Math.max(...FUNNEL.map((f) => f.views));
   return (
     <div
       style={{
@@ -379,7 +378,7 @@ export default function Page() {
             </div>
             <div>
               <div style={{ fontSize: 38, fontWeight: 800, color: '#fff' }}>
-                {((11 / TOTAL_VIEWS) * 100).toFixed(1)}%
+                {((COMPLETIONS / TOTAL_VIEWS) * 100).toFixed(1)}%
               </div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.7)' }}>Tasa de finalización</div>
             </div>
